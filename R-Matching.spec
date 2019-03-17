@@ -4,14 +4,13 @@
 #
 Name     : R-Matching
 Version  : 4.9.5
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/Matching_4.9-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Matching_4.9-5.tar.gz
 Summary  : Multivariate and Propensity Score Matching with Balance
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-Matching-lib = %{version}-%{release}
-Requires: R-rgenoud
 BuildRequires : R-rgenoud
 BuildRequires : buildreq-R
 
@@ -34,10 +33,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552071852
+export SOURCE_DATE_EPOCH=1552853985
 
 %install
-export SOURCE_DATE_EPOCH=1552071852
+export SOURCE_DATE_EPOCH=1552853985
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -73,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library Matching|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  Matching || :
 
 
 %files
@@ -123,7 +121,14 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/Matching/help/paths.rds
 /usr/lib64/R/library/Matching/html/00Index.html
 /usr/lib64/R/library/Matching/html/R.css
-/usr/lib64/R/library/Matching/libs/symbols.rds
+/usr/lib64/R/library/Matching/tests/AbadieImbens.R
+/usr/lib64/R/library/Matching/tests/AbadieImbens.Rout.save
+/usr/lib64/R/library/Matching/tests/DehejiaWahba.R
+/usr/lib64/R/library/Matching/tests/DehejiaWahba.Rout.save
+/usr/lib64/R/library/Matching/tests/GenMatch.R
+/usr/lib64/R/library/Matching/tests/GenMatch.Rout.save
+/usr/lib64/R/library/Matching/tests/Matchby.R
+/usr/lib64/R/library/Matching/tests/Matchby.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
