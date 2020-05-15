@@ -4,7 +4,7 @@
 #
 Name     : R-Matching
 Version  : 4.9.7
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/Matching_4.9-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Matching_4.9-7.tar.gz
 Summary  : Multivariate and Propensity Score Matching with Balance
@@ -16,7 +16,9 @@ BuildRequires : R-rgenoud
 BuildRequires : buildreq-R
 
 %description
-## Matching: Multivariate and Propensity Score Matching Software for Causal Inference
+and for finding optimal balance based on a genetic search algorithm. 
+             A variety of univariate and multivariate metrics to
+             determine if balance has been obtained are also provided.
 
 %package lib
 Summary: lib components for the R-Matching package.
@@ -28,21 +30,22 @@ lib components for the R-Matching package.
 
 %prep
 %setup -q -c -n Matching
+cd %{_builddir}/Matching
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581052196
+export SOURCE_DATE_EPOCH=1589582430
 
 %install
-export SOURCE_DATE_EPOCH=1581052196
+export SOURCE_DATE_EPOCH=1589582430
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
