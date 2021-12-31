@@ -4,7 +4,7 @@
 #
 Name     : R-Matching
 Version  : 4.9.11
-Release  : 46
+Release  : 47
 URL      : https://cran.r-project.org/src/contrib/Matching_4.9-11.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/Matching_4.9-11.tar.gz
 Summary  : Multivariate and Propensity Score Matching with Balance
